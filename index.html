@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+  <meta charset="UTF-8" />
+  <title>JSAB-HTML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="./resources/browser/icons/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="./resources/browser/icons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="./resources/browser/icons/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" href="./resources/browser/icons/apple-touch-icon.png"/>
+  <link rel="manifest" href="./resources/browser/manifest.json" />
+  <meta name="theme-color" content="#ffffff"/>
+  <link rel="stylesheet" href="./resources/inGameVisuals-config.css?v=1.2.5"/>
+</head>
+
+  <body>
+    <button id="pauseGameplay" style="display: none">❚❚</button>
+
+    <div id="menu">
+      <h1>JUST SHAPES & BEATS HTML</h1>
+      <h2 id="info-game-version-text">Version: 1.6.2</h2>
+      <button id="controlToggle"></button>
+      <button id="startGame">PLAYLIST</button>
+      <button id="readChangelogs">CHANGELOGS</button>
+      <button id="readCredits">CREDITS</button>
+    </div>
+
+    <div id="levelSelect" style="display: none">
+      <div id="levelSelect-box">
+        <button id="backToMainMenu">BACK</button>
+        <button id="nextTabButton">NEXT TAB</button>
+        <div id="pageNumber" style="display: none">1 / 1</div>
+      </div>
+      <div id="levelGrid"></div>
+    </div>
+
+    <div id="death-menu" style="display: none">
+      <div id="death-menu-background"></div>
+      <div id="death-menu-box">
+        <h1 id="death-menu-text">YOU DIED</h1>
+        <div id="death-menu-buttons">
+          <button onclick="retryLevel()">TRY AGAIN</button>
+          <button onclick="goToMenu()">BACK TO MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="pause-menu" style="display: none">
+      <div id="pause-menu-background"></div>
+      <div id="pause-menu-box">
+        <h1 id="pause-menu-text">PAUSED</h1>
+        <div id="pause-menu-buttons">
+          <button onclick="resumeGame()">RESUME</button>
+          <button onclick="retryLevel()">RESTART LEVEL</button>
+          <button onclick="goToMenu()">BACK TO MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="game"></canvas>
+
+    <script src="./audio.js?v=1.2.5"></script>
+    <script src="./resources/player/resources.js?v=1.2.5"></script>
+    <script src="./player.js?v=1.2.5"></script>
+    <script src="./objects.js?v=1.2.5"></script>
+    <script src="./levels.js?v=1.2.5"></script>
+    <script src="./controls.js?v=1.2.5"></script>
+    <script src="./game.js?v=1.2.5"></script>
+
+    <script>window.addEventListener("load",async()=>{console.log("PluginsLoader: AudioManager plugin successfully loaded!");try{"undefined"!=typeof AudioManager&&(await AudioManager.init(),console.log("System: Engine fully stabilized."))}catch(i){console.error("System Error during audio initialization:",i)}});</script>
+
+  </body>
+</html>
